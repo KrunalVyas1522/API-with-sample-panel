@@ -1,5 +1,7 @@
 # precticle-logical-street
 
+Please refer env.test and create new .env file.
+
 For API Documentation:
 
 Create a New Database name "phases_db"
