@@ -74,7 +74,7 @@ export class PhasesService {
     //     throw new Error(error);
     //   }
     // }
-    public async getPhases(query: string): Promise<PhaseModel[] | Error> {
+    public async getPhases(query: any): Promise<PhaseModel[] | Error> {
       console.log(`${PhasesService.logInfo} Getting Phases for data: ${query}`);
       try {
         console.log('Current Query : =======> ', query);
@@ -82,7 +82,7 @@ export class PhasesService {
         const phases = await this.phaseRepository.getAllPhases(query);
         if (!phases.length) {
           console.log(`${PhasesService.logInfo} failed to find Phases for data: ${query}`);
-          throw new NotFoundException(`No phases found for query: ${query}`); // Change this line
+          throw new NotFoundException(`No phases found for query: ${JSON.stringify(query)}`); // Change this line
         }
         console.log(`${PhasesService.logInfo} Found Phases with data: ${query}`);
         return phases;

@@ -24,7 +24,7 @@ export class PhasesController {
   @Get()
   async findAllPhases(
     // query: QueryPhaseDto,
-    @Query() query: string,
+    @Query() query: any,
   ): Promise<PhaseModel[] | Error> {
     return await this.phasesService.getPhases(query);
   }

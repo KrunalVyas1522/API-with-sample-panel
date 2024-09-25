@@ -25,7 +25,7 @@ export class PhaseRepository implements IPhaseRepository{
         let queryable = await this.phaseRepository.createQueryBuilder('phases');
     
         // Check if the query is not empty
-        if (query) {
+        if (query && query?.query) {
             // Searching for phrases using ILIKE
             queryable = queryable.where('phases.phrase ILIKE :phase', {
                 phase: `%${query?.query}%`,
